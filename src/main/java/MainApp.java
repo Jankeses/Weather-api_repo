@@ -57,8 +57,10 @@ public class MainApp implements Runnable {
         String cityName = scanner.nextLine();
 
         try {
-            String response = new HttpService().connect(Config.APP_URL + "?q=" + cityName + "&units=metric" +"&appid=" + Config.APP_ID );
+            String response = new HttpService().connect(Config.APP_URL + "?q=" + cityName + ",pl" + "&units=metric" +"&appid=" + Config.APP_ID );
             parseJson(response);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,7 +73,7 @@ public class MainApp implements Runnable {
         String cityCode = scanner.nextLine();
 
         try {
-            String response = new HttpService().connect(Config.APP_URL + "?zip=" + cityCode + "&units=metric" + "&appid=" + Config.APP_ID + "&units=metric");
+            String response = new HttpService().connect(Config.APP_URL + "?zip=" + cityCode + ",pl" + "&units=metric" + "&appid=" + Config.APP_ID);
             parseJson(response);
         } catch (IOException e) {
             e.printStackTrace();
