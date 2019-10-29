@@ -69,7 +69,6 @@ public class MainApp implements Runnable {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj kod pocztowy miasta: ");
-
         String cityCode = scanner.nextLine();
 
         try {
@@ -79,4 +78,18 @@ public class MainApp implements Runnable {
             e.printStackTrace();
         }
     }
+    public void run3() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj kod pocztowy miasta: ");
+        String cityCode = scanner.nextLine();
+
+        try {
+            String response = new HttpService().connect(Config.APP_URL + "?zip=" + cityCode + ",pl" + "&units=metric" + "&appid=" + Config.APP_ID);
+            parseJson(response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
