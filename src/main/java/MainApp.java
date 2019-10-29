@@ -15,6 +15,7 @@ public class MainApp implements Runnable {
         double wiatr_speed;
         double wiatr_kierunek;
 
+
         JSONObject rootObject = new JSONObject(json);
         if (rootObject.getInt("cod") == 200) {
             System.out.println(json);
@@ -45,8 +46,10 @@ public class MainApp implements Runnable {
 
         } else {
             System.out.println("Error");
+
         }
         run();
+
     }
 
     @Override

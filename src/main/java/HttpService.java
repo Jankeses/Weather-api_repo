@@ -10,7 +10,6 @@ public class HttpService {
 
         StringBuilder stringBuilder = new StringBuilder();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 connection.getResponseCode() == 200 ? connection.getInputStream():connection.getErrorStream()
         ));
